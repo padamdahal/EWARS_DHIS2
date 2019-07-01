@@ -1,6 +1,11 @@
 ## DHIS2 implementation for Early Warning and Reporting System (EWARS) - Nepal
 
-The additional code (EWARS specific implementation) in the index.html is below:
+The additional code (EWARS specific implementation) in the index.html is within 
+<!-- EWARS Specific implementation -->
+....
+<!-- end EWARS specific implementation -->
+
+below in :
 
     <!-- EWARS Specific implementation -->
     	<link type="text/css" rel="stylesheet" href="/ewars-dhis-assets/jquery.calendars.package-2.1.0/css/jquery.calendars.picker.css" />
