@@ -7,4 +7,7 @@ The additional code (EWARS specific implementation) in the index.html is within 
 	....
 	<!-- end EWARS specific implementation -->
 
+
+The ewars-dhis-assets directory to be hosted along with dhis war file.
+
 DHIS2 version: 2.30
