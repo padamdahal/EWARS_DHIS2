@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>jqxChart Stacked Column & Spline Area Combination Example</title>
+    <link rel="stylesheet" href="jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jqxcore.js"></script>
+    <script type="text/javascript" src="jqxdata.js"></script>
+    <script type="text/javascript" src="jqxdraw.js"></script>
+    <script type="text/javascript" src="jqxchart.core.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // prepare chart data as an array
+            var sampleData = [
+                    { week: 'W1', '2015': 30, 2016: 0},
+                    { week: 'W2', '2015': 25, 2016: 25},
+                    { week: 'W3', '2015': 30, 2016: 0},
+                    { week: 'W4', '2015': 20, 2016: 20},
+                    { week: 'W5', '2015': 0, 2016: 20},
+                    { week: 'W6', '2015': 30, 2016: 0},
+                    { week: 'W7', '2015': 20, 2016: 40}
+                ];
+			alert(sampleData[0]);
+            // prepare jqxChart settings
+            var settings = {
+                title: "Fitness & exercise weekly scorecard",
+                description: "Time spent in vigorous exercise by activity",
+                enableAnimations: true,
+                showLegend: true,
+                padding: { left: 5, top: 5, right: 5, bottom: 5 },
+                titlePadding: { left: 90, top: 0, right: 0, bottom: 10 },
+                source: sampleData,
+                colorScheme: 'scheme05',
+                borderLineColor: '#888888',
+                xAxis:{
+                    dataField: 'week',
+                    unitInterval: 1,
+                    tickMarks: {visible: true,interval: 1,color: '#888888'},
+                    gridLines:{visible: false,interval: 1,color: '#888888'},
+                    axisSize: 'auto'
+                },
+                valueAxis:{
+                    visible: true,
+                    unitInterval: 10,
+                    minValue: 0,
+                    maxValue: 100,
+                    title: { text: 'Time in minutes' },
+                    tickMarks: {color: '#888888'},
+                    gridLines: {color: '#888888'},
+                    axisSize: 'auto'
+                },
+
+                seriesGroups:[{
+                    type: 'splinearea',
+                    series: [{
+						dataField: '2015',
+						displayText: '2015',
+						opacity: 0.7,
+						labels:{visible: true,padding: { left: 5, right: 5, top: 0, bottom: 0 }}
+					}]
+                },{
+					type: 'spline',
+                    columnsGapPercent: 50,
+                    seriesGapPercent: 5,
+					series: [{
+						dataField: '2016',
+						displayText: '2016',
+						opacity: 0.7,
+						labels:{visible: true,padding: { left: 5, right: 5, top: 0, bottom: 0 }}
+					}]
+                }]
+            };
+
+            // setup the chart
+            $('#chartContainer').jqxChart(settings);
+
+        });
+    </script>
+</head>
+<body class='default'>
+    <div id='chartContainer' style="width:850px; height:500px">
+    </div>
+</body>
+</html>

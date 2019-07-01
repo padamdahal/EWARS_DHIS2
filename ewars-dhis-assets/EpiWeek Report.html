@@ -1,0 +1,162 @@
+<!-- PivotTable.js libs from ../dist -->
+<link rel="stylesheet" type="text/css" href="../api/apps/ewars_vizualization/assets/pivottable/pivot.css">
+<script type="text/javascript" src="../api/apps/ewars_vizualization/assets/pivottable/d3.min.js"></script>
+<script type="text/javascript" src="../api/apps/ewars_vizualization/assets/pivottable/c3.min.js"></script>
+<script type="text/javascript" src="../api/apps/ewars_vizualization/assets/pivottable/pivot.js"></script>
+<script type="text/javascript" src="../api/apps/ewars_vizualization/assets/pivottable/export_renderers.js"></script>
+<script type="text/javascript" src="../api/apps/ewars_vizualization/assets/pivottable/d3_renderers.js"></script>
+<script type="text/javascript" src="../api/apps/ewars_vizualization/assets/pivottable/c3_renderers.js"></script>
+
+
+    <script type="text/javascript" src="../external-assets/jqxchart/jqxcore.js"></script>
+    <script type="text/javascript" src="../external-assets/jqxchart/jqxdata.js"></script>
+    <script type="text/javascript" src="../external-assets/jqxchart/jqxdraw.js"></script>
+    <script type="text/javascript" src="../external-assets/jqxchart/jqxchart.core.js"></script>
+	 <link rel="stylesheet" href="../external-assets/jqxchart/jqx.base.css" type="text/css" />
+
+
+<link rel="stylesheet" type="text/css" href="../external-assets/ewars-weekly-report.css">
+<!--script type="text/javascript" src="../external-assets/epiweek_functions.js"></script-->
+<script type="text/javascript" src="../external-assets/epiweek_reportScripts.js"></script>
+<!--script type="text/javascript" src="https://www.google.com/jsapi"></script-->
+<script type="text/javascript" src="../external-assets/jquery.svgtoimage.js"></script>
+	
+<!----- Chart and Text Editors ---------------------->
+<div id="chart_editor" style="display:none;"></div>
+
+<div id="text_editor">
+	<div class="title_bar" id="title_bar">
+		<div id="title">Edit the text</div>
+		<div id="close_editor">X</div>
+	</div>
+	<div class="textarea_container">
+		<textarea id="text" rows="10" cols="105"></textarea>
+	</div>
+	<div id="title_bar">
+		<div id="update_text">Update</div>
+	</div>
+</div>
+
+<div id="chartimagecontainer">
+	<div id="image"></div>
+	<div id="close_chartimage" class="btn btn-primary">Close</div>
+</div>
+<!-----/ Chart and Text Editors ---------------------->
+<!--select name="reportingPeriod" id="reportingPeriod">
+	
+</select-->
+<h1 style="text-align:center;padding:15px 0;background:rgb(207, 234, 255);margin-bottom:0">
+	<!--img src="../external-assets/gon_logo.png" width="100"/><br/-->
+	<div id="office-name" style="margin:0;font-size:80%;width:100%">Epidemiology and Disease Control Division</div>
+	<div id="report-title" style="margin:0;width:100%">EWARS Weekly Report</div>
+	<div id="period" style="font-size:80%;width:100%"></div>
+	<div id="rdate"  style="font-size:60%;width:100%"></div>
+</h1>
+
+<!--div>
+	<h3 style="text-align:center;background:#efefef;padding:5px 0;margin-bottom:0;">Highlights</h3>
+	<div class="editable" id="highlights" style="min-height:10px;padding:5px;border:1px solid #efefef;"></div>
+</div-->
+
+<div class="row">
+	<h4 class="row-heading">Reporting Status</h4>
+	<div id="reportingStatus" style="border:2px solid #ececec;margin:0px 5px 10px 5px;min-height:25px;overflow:hidden"></div>
+</div>
+
+<div class="row">
+	<h4 class="row-heading">Age and Sex Distribution of Reported Cases</h4>
+	<div class="content placeholder" id="table1" ></div>
+	<div class="editable" id="table_desc"></div>
+</div>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
+<div id="charts" style="position:relative;float:left;">
+	<div class="chart_container_sm left">
+		<div class="charts placeholder" id="AGE_chart"></div>
+		<div class="chartdesc" id="age_interpretation" style="min-height:10px;margin:5px;"></div>
+		<div id="chart_actions">
+			<div class="toImage" target="AGE_chart"><i class="fa fa-picture-o"></i></div>
+			<div class="interpretation" target="age_interpretation" style="top:30px;"><i class="fa fa-pencil"></i></div>
+		</div>
+	</div>
+	
+	<div class="chart_container_sm right">
+		<div class="charts placeholder" id="cholera_chart"></div>
+		<div class="chartdesc" id="cholera_interpretation" style="min-height:10px;margin:5px;"></div>
+		<div id="chart_actions">
+			<div class="toImage" target="cholera_chart"><i class="fa fa-picture-o"></i></div>
+			<div class="interpretation" target="cholera_interpretation"><i class="fa fa-pencil"></i></div>
+		</div>
+	</div>
+	
+	<div class="chart_container_sm left">
+		<div class="charts placeholder" id="sari_chart"></div>
+		<div class="chartdesc" id="sari_interpretation" style="min-height:10px;margin:5px;"></div>
+		<div id="chart_actions">
+			<div class="toImage" target="sari_chart"><i class="fa fa-picture-o"></i></div>
+			<div class="interpretation" target="sari_interpretation"><i class="fa fa-pencil"></i></div>
+		</div>
+	</div>
+
+	<div class="chart_container_sm right">
+		<div class="charts placeholder" id="kalaazar_chart"></div>
+		<div class="chartdesc" id="kalaazar_interpretation" style="min-height:10px;margin:5px;"></div>
+		<div id="chart_actions">
+			<div class="toImage" target="kalaazar_chart"><i class="fa fa-picture-o"></i></div>
+			<div class="interpretation" target="kalaazar_interpretation"><i class="fa fa-pencil"></i></div>
+		</div>
+	</div>
+	
+	<div class="chart_container_sm right" style="width:100%">
+		<div class="charts placeholder" id="dengue_chart"></div>
+		<div class="chartdesc" id="dengue_interpretation" style="min-height:10px;margin:5px;"></div>
+		<div id="chart_actions">
+			<div class="toImage" target="dengue_chart"><i class="fa fa-picture-o"></i></div>
+			<div class="interpretation" target="dengue_interpretation"><i class="fa fa-pencil"></i></div>
+		</div>
+	</div>
+
+	<div class="chart_container_sm left">
+		<div class="charts placeholder" id="malaria_vivax_chart"></div>
+		<div class="chartdesc" id="malaria_vivax_interpretation" style="min-height:10px;margin:5px;"></div>
+		<div id="chart_actions">
+			<div class="toImage" target="malaria_vivax_chart"><i class="fa fa-picture-o"></i></div>
+			<div class="interpretation" target="malaria_vivax_interpretation"><i class="fa fa-pencil"></i></div>
+		</div>
+	</div>
+	
+	<div class="chart_container_sm right">
+		<div class="charts placeholder" id="malaria_falciparum_chart"></div>
+		<div class="chartdesc" id="malaria_falciparum_interpretation" style="min-height:10px;margin:5px;"></div>
+		<div id="chart_actions">
+			<div class="toImage" target="malaria_falciparum_chart"><i class="fa fa-picture-o"></i></div>
+			<div class="interpretation" target="malaria_falciparum_interpretation"><i class="fa fa-pencil"></i></div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<h4 class="row-heading">Sentinel Site wise Cases/Deaths Report</h4>
+	<div class="content placeholder" id="hfcasedeath"></div>
+	<div class="editable" id="table_desc2"></div>
+</div>
+
+<div class="row">
+	<h4 class="row-heading">District wise Cases/Deaths Report</h4>
+	<div class="content placeholder" id="districtwise"></div>
+	<div class="editable" id="table_desc3"></div>
+</div>
+
+<div style="position:relative;float:left;width:100%;margin-bottom:15px;">
+	<h4>Geographical Distribution of Reported Cases</h4>
+	<div style="margin-left:5px;margin-top:5px;position:relative;float:left;width:49%">
+		<img id="age_this_week">
+	</div>
+	
+	<div style="margin-left:5px;margin-top:5px;position:relative;float:left;width:49%">
+		<img id="sari_last_year">
+	</div>
+	
+	<div style="margin-left:5px;margin-top:5px;position:relative;float:left;width:49%">
+		<img id="dengue_last_year">
+	</div>
+</div>
