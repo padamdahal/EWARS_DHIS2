@@ -1,4 +1,4 @@
-/* input fields and override optionListInput */
+/** input fields and override optionListInput **/
 .table td input[type=text],.table td input[type=number], .table td.optionListInput{
 	border: 1px solid #aaa;
 	display: block;
