@@ -109,7 +109,6 @@
             // Needs to be wrapped in jQuery to be sure the DOM is parsed as the script is not at the bottom.
             jQuery(function () {
                 Dhis2HeaderBar.initHeaderBar(document.querySelector('#header'), '../api', { noLoadingIndicator: true });
-				$('body .optionListInput').tabIndex = 0;
             });
             var downloadMetaData, ajax_login, DHIS2URL; // included core/event-capture.js in bundle, but these variables needs to be global for time being. They are set in index.js
         </script>
@@ -128,11 +127,11 @@
 
     <script type="text/javascript" src="app-b0ec4b56b8046eb4881e.js"></script>
 	
-	<!-- EWARS Specific implementation -->
-	<link type="text/css" rel="stylesheet" href="/ewars-dhis-assets/jquery.calendars.package-2.1.0/css/jquery.calendars.picker.css" />
-	<script src="/ewars-dhis-assets/jquery.calendars.package-2.1.0/js/jquery.calendars.nepali.js"></script>
-	<link href="/ewars-dhis-assets/ewars-custom-form-style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="/ewars-dhis-assets/nepali.datepicker.v2.1.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://padamdahal.github.io/EWARS_DHIS2/ewars-dhis-assets/jquery.calendars.package-2.1.0/css/jquery.calendars.picker.css" />
+	<script type="text/javascript" src="https://padamdahal.github.io/EWARS_DHIS2/ewars-dhis-assets/jquery.calendars.package-2.1.0/js/jquery.plugin.js"></script> 
+	<script src="https://padamdahal.github.io/EWARS_DHIS2/ewars-dhis-assets/jquery.calendars.package-2.1.0/js/jquery.calendars.nepali.js"></script>
+	<link href="https://padamdahal.github.io/EWARS_DHIS2/ewars-dhis-assets/ewars-custom-form-style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="https://padamdahal.github.io/EWARS_DHIS2/ewars-dhis-assets/nepali.datepicker.v2.1.min.js"></script>
 	<script>
         try{
 			var eventCapture = angular.module('eventCapture');
@@ -154,7 +153,9 @@
 						// insert element to display week number
 						var weekDisplay = $('<span class="weekNumber" style="position:relative;float:left;font-weight:bold"></span>');
 						html.find('span').remove();
-						weekDisplay.appendTo(html);
+						if(model === 'currentEvent.eventDate'){
+							weekDisplay.appendTo(html);
+						}
 						
 						// Attach nepali calendar in the input field
 						customDateField.calendarsPicker({
@@ -173,8 +174,10 @@
 								$('.ui-datepicker-cmd-close').trigger("click");
 								
 								// Display week number
-								var epiWeek = calculateEpiWeekFromDate(engDate);
-								$("body .weekNumber").html('Week '+epiWeek);
+								if(model === 'currentEvent.eventDate'){
+									var epiWeek = calculateEpiWeekFromDate(engDate);
+									$("body .weekNumber").html('Week '+epiWeek);
+								}
 							}
 						});
 						
@@ -290,6 +293,5 @@
 			console.log('eventCapture app is not initialized.');
 		}	
         </script>
-		<!-- end EWARS specific implementation -->
 	</body>
 </html>
