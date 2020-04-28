@@ -14,7 +14,7 @@ try{
 			var model = element.attr('ng-model');
 			
 			//if(model === 'currentEvent.eventDate' || model === 'currentEvent.ZBGo5bBUYGU'){
-			if(element.attr('max-date') != undefined && element.attr('d2-date-validator') != undefined){
+			if(element.attr('max-date') != undefined){
 				var html = element.parent();
 				console.log(html);
 				// Insert text input for nepali date
