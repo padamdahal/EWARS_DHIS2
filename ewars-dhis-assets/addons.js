@@ -12,7 +12,7 @@ try{
 	trackerCapture.directive('input', function () {
 		var link = function ($scope, element, attrs, ngModel) {
 			var model = element.attr('ng-model');
-			console.log(eval(model));
+			
 			if(element.attr('max-date') != undefined){
 				var html = element.parent();
 				
