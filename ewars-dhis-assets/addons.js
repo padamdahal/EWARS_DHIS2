@@ -1,3 +1,14 @@
+$(document).ready(function(){
+	
+	console.log('form loaded');
+	
+});
+
+
+
+
+
+
 try{
 	var trackerCapture = angular.module('trackerCapture');
 		
@@ -8,7 +19,7 @@ try{
 			//if(model === 'currentEvent.eventDate' || model === 'currentEvent.ZBGo5bBUYGU'){
 			if(element.attr('max-date') != undefined && element.attr('d2-date-validator') != undefined){
 				var html = element.parent();
-			
+				console.log(html);
 				// Insert text input for nepali date
 				var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Date" style="position:relative;float:left;display:block"/>');
 				customDateField.prependTo(html);
@@ -39,7 +50,7 @@ try{
 								
 						// Display week number
 						if(model === 'currentEvent.eventDate'){
-							var epiWeek = calculateEpiWeekFromDate(engDate);
+							//var epiWeek = calculateEpiWeekFromDate(engDate);
 							$("body .weekNumber").html('Week '+epiWeek);
 						}
 					}
