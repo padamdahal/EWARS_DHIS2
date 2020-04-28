@@ -1,7 +1,7 @@
 try{
-	var eventCapture = angular.module('eventCapture');
+	var trackerCapture = angular.module('trackerCapture');
 		
-	eventCapture.directive('input', function () {
+	trackerCapture.directive('input', function () {
 		var link = function ($scope, element, attrs, ngModel) {
 			var model = element.attr('ng-model');
 			
@@ -153,5 +153,5 @@ try{
 		return { link: link };
 	});
 }catch(e){
-	console.log('eventCapture app is not initialized.');
+	console.log('trackerCapture app is not initialized.');
 }
