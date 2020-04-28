@@ -13,21 +13,13 @@ try{
 		var link = function ($scope, element, attrs, ngModel) {
 			var model = element.attr('ng-model');
 			
-			//if(model === 'currentEvent.eventDate' || model === 'currentEvent.ZBGo5bBUYGU'){
 			if(element.attr('max-date') != undefined){
 				var html = element.parent();
-				console.log(html);
+				
 				// Insert text input for nepali date
 				var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Date" style="position:relative;float:left;display:block"/>');
 				customDateField.prependTo(html);
 				customDateField.next('input').css({"pointer-events":"none","border":"none","color":"#ccc","box-shadow":"none","position":"relative","float":"left"});
-					
-				// insert element to display week number
-				var weekDisplay = $('<span class="weekNumber" style="position:relative;float:left;font-weight:bold"></span>');
-				html.find('span').remove();
-				if(model === 'currentEvent.eventDate'){
-					weekDisplay.appendTo(html);
-				}
 						
 				// Attach nepali calendar in the input field
 				customDateField.calendarsPicker({
@@ -47,12 +39,12 @@ try{
 								
 						// Display week number
 						if(model === 'currentEvent.eventDate'){
-							//var epiWeek = calculateEpiWeekFromDate(engDate);
 							$("body .weekNumber").html('Week '+epiWeek);
 						}
 					}
 				});
-						
+				
+				
 				// Function to calculate the epidemiology week from selected date
 				function calculateEpiWeekFromDate(value){
 					Date.prototype.getWeek = function (){
@@ -77,9 +69,9 @@ try{
 				var parentWithD2 = element[0].parentElement.parentElement.parentElement.parentElement;
 											
 				if($(parentWithD2).attr('d2-model-id') === 'prStDes.hLXJqD7b9im.dataElement.id'){
-					if($scope.d2Model.pC8BBR3B0XX != null && $scope.d2Model.pC8BBR3B0XX != 'undefined'){
-						$scope.searchText = $scope.d2Model.pC8BBR3B0XX.substr(0, 3);
-						$scope.search($scope.d2Model.pC8BBR3B0XX.substr(0, 3));
+					if($scope.d2Model.OgXR2MrpMuB != null && $scope.d2Model.OgXR2MrpMuB != 'undefined'){
+						$scope.searchText = $scope.d2Model.OgXR2MrpMuB.substr(0, 3);
+						$scope.search($scope.d2Model.OgXR2MrpMuB.substr(0, 3));
 					}
 				}
 			}
@@ -89,7 +81,8 @@ try{
 				var val = $(element[0]).val().toUpperCase();
 				$(element[0]).val(val);
 			});
-					
+			
+			console.log(model);
 			// Age Variable - currentEvent.caMyqMax9y7
 			if(model == 'currentEvent.caMyqMax9y7'){
 				var parent = element[0].parentElement;
