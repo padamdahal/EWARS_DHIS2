@@ -1,4 +1,7 @@
 /** input fields and override optionListInput **/
+.calendars-popup{
+	z-index:9999999 !important;
+}
 .table td input[type=text],.table td input[type=number], .table td.optionListInput{
 	border: 1px solid #aaa;
 	display: block;
