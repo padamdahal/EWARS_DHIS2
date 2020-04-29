@@ -16,11 +16,11 @@ try{
 			if(element.attr('max-date') != undefined){
 				var html = element.parent();
 				
-				element.css({"pointer-events":"none","border":"none","color":"#ccc","box-shadow":"none","position":"relative","float":"left","width":"50% !important"});
+				//element.css({"pointer-events":"none","border":"none","color":"#ccc","box-shadow":"none","position":"relative","float":"left","width":"50% !important"});
 				// Insert text input for nepali date
 				var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Date" style="position:relative;float:left;display:block;width:50% !important"/>');
-				element.before(customDateField);
-				//customDateField.prependTo(html);
+				//element.before(customDateField);
+				customDateField.appendTo(html);
 				customDateField.next('input').css({"pointer-events":"none","border":"none","color":"#ccc","box-shadow":"none","position":"relative","float":"left","width":"50% !important"});
 						
 				// Attach nepali calendar in the input field
