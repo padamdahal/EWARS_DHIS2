@@ -21,7 +21,7 @@ try{
 				var customDateField = $('<a href="#" style="position:relative;float:left;"><img src="https://i.pinimg.com/236x/ca/65/54/ca655453eb79fe8db19601dfcf53ed95--vectors-calendar.jpg" style="width:50px;"/></a>');
 				$(element[0]).after(customDateField);
 				//customDateField.appendTo(html);
-				customDateField.prev('input').css({"max-width":"50% !important","pointer-events":"none","color":"#ccc","position":"relative","float":"left"});
+				customDateField.prev('input').css({"max-width":"50%","pointer-events":"none","color":"#ccc","position":"relative","float":"left"});
 						
 				// Attach nepali calendar in the input field
 				customDateField.calendarsPicker({
