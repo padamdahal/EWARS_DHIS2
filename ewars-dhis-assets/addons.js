@@ -22,8 +22,8 @@ try{
 				var html = element.parent();
 				
 				// Insert text input for nepali date
-				//var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Nepali Date" style="position:relative;float:left;display:block;width:50% !important"/>');
-				var customDateField = $('<a class="nepali-calendar" style="position:relative;float:left;"><img src="https://i.pinimg.com/236x/ca/65/54/ca655453eb79fe8db19601dfcf53ed95--vectors-calendar.jpg" style="width:50px;"/></a>');
+				var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Nepali Date" style="position:relative;float:left;display:block;width:50px !important;background:url(https://i.pinimg.com/236x/ca/65/54/ca655453eb79fe8db19601dfcf53ed95--vectors-calendar.jpg ) no-repeat "/>');
+				//var customDateField = $('<i class="nepali-calendar" style="position:relative;float:left;"><img src="https://i.pinimg.com/236x/ca/65/54/ca655453eb79fe8db19601dfcf53ed95--vectors-calendar.jpg" style="width:50px;"/></i>');
 				$(element[0]).after(customDateField);
 				//customDateField.appendTo(html);
 				customDateField.prev('input').css({"max-width":"50%","pointer-events":"none","color":"#ccc","position":"relative","float":"left"});
