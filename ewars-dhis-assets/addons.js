@@ -38,7 +38,7 @@ try{
 				});
 				
 				// Get the date
-				var ADDate = $(element[0]).value;
+				var ADDate = $(element[0])[0].value;
 				
 				if(ADDate != '' || ADDate != null || ADDate != undefined){
 					console.log(ADDate);
