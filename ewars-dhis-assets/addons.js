@@ -10,7 +10,9 @@ try{
 	var trackerCapture = angular.module('trackerCapture');
 		
 	trackerCapture.directive('input', function () {
-		$(".nepali-calendar").preventDefault();
+		$(".nepali-calendar").click(function(event){
+			event.preventDefault();
+		});
 		
 		var link = function ($scope, element, attrs, ngModel) {
 			var model = element.attr('ng-model');
