@@ -22,7 +22,7 @@ try{
 				var html = element.parent();
 				
 				// Insert text input for nepali date
-				//var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Nepali Date" style="position:relative;float:left;display:block;width:50px !important;background-image:url(https://i.pinimg.com/236x/ca/65/54/ca655453eb79fe8db19601dfcf53ed95--vectors-calendar.jpg) no-repeat "/>');
+				//var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Nepali Date" />');
 				var customDateField = $('<button class="nepali-calendar"><img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png"/></button>');
 				$(element[0]).after(customDateField);
 				//customDateField.appendTo(html);
@@ -38,21 +38,18 @@ try{
 					showAnim: "",
 					dateFormat: 'yyyy-mm-dd',
 					onSelect: function(npDate) {
+						// Convert the date into AD and assign to the date field
 						var engDate = BS2AD(npDate[0]._year+'-'+npDate[0]._month+'-'+npDate[0]._day);
-						$(element[0])
 						$(element[0]).val(engDate);
 						$(element[0]).trigger("change");
 						$(element[0]).trigger("blur");
+						console.log($(element[0]));
 						
 						//$(this).prev('input').val(engDate);
 						//$(this).prev('input').trigger("change");
 						//$(this).prev('input').trigger("blur");
 						$('.ui-datepicker-cmd-close').trigger("click");
-								
-						// Display week number
-						if(model === 'currentEvent.eventDate'){
-							$("body .weekNumber").html('Week '+epiWeek);
-						}
+						
 					}
 				});
 				
