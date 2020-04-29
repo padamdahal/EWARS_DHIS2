@@ -11,18 +11,13 @@ try{
 		
 	trackerCapture.directive('input', function () {
 		
-		$(".nepali-calendar").click(function(event){
-			event.preventDefault();
-		});
-		
 		var link = function ($scope, element, attrs, ngModel) {
 			var model = element.attr('ng-model');
 			
 			if(element.attr('max-date') != undefined){
 				var html = element.parent();
 				
-				// Insert text input for nepali date
-				//var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Nepali Date" />');
+				// Insert button for nepali calendar
 				var customDateField = $('<button class="nepali-calendar"><img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png"/></button>');
 				$(element[0]).after(customDateField);
 				//customDateField.appendTo(html);
@@ -49,24 +44,10 @@ try{
 					}
 				});
 				
+				// Get the date
+				var ADDate = $(element[0]).val();
+				console.log(ADDate);
 				
-				// Function to calculate the epidemiology week from selected date
-				function calculateEpiWeekFromDate(value){
-					Date.prototype.getWeek = function (){
-						var target = new Date(this.valueOf());
-						var dayPs = (this.getDay() + 7) % 7;
-						target.setDate(target.getDate() - dayPs + 3);
-						var jan4 = new Date(target.getFullYear(), 0, 4);
-						var dayDifference = (target - jan4) / 86400000;
-						if (new Date(target.getFullYear(), 0, 1).getDay() < 4){
-							return 1 + Math.ceil(dayDifference / 7);
-						}else{
-							return Math.ceil(dayDifference / 7);
-						}
-					};
-					var weekNumber = new Date(value).getWeek()
-					return weekNumber;
-				}
 			}
 				
 			/* filter options for municipality based on selected district*/
