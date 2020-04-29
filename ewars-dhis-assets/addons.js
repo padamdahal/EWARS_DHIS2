@@ -26,7 +26,7 @@ try{
 				var customDateField = $('<button class="nepali-calendar"><img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png"/></button>');
 				$(element[0]).after(customDateField);
 				//customDateField.appendTo(html);
-				customDateField.prev('input').css({"max-width":"50%","pointer-events":"none"});
+				customDateField.prev('input').css({"pointer-events":"none"});
 						
 				// Attach nepali calendar in the input field
 				customDateField.calendarsPicker({
