@@ -34,9 +34,9 @@ try{
 					dateFormat: 'yyyy-mm-dd',
 					onSelect: function(npDate) {
 						var engDate = BS2AD(npDate[0]._year+'-'+npDate[0]._month+'-'+npDate[0]._day);
-						$(this).next('input').val(engDate);
-						$(this).next('input').trigger("change");
-						$(this).next('input').trigger("blur");
+						$(this).prev('input').val(engDate);
+						$(this).prev('input').trigger("change");
+						$(this).prev('input').trigger("blur");
 						$('.ui-datepicker-cmd-close').trigger("click");
 								
 						// Display week number
