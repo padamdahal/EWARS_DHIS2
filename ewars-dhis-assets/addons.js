@@ -1,10 +1,3 @@
-$(document).ready(function(){
-	
-	console.log('document ready');
-	var input = $('input');
-	console.log(input);
-});
-
 
 try{
 	var trackerCapture = angular.module('trackerCapture');
@@ -45,7 +38,7 @@ try{
 				});
 				
 				// Get the date
-				var ADDate = $(element[0]).val();
+				var ADDate = $(element[0]).value;
 				
 				if(ADDate != '' || ADDate != null || ADDate != undefined){
 					console.log(ADDate);
