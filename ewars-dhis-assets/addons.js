@@ -17,8 +17,8 @@ try{
 				var html = element.parent();
 				
 				// Insert text input for nepali date
-				var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Nepali Date" style="position:relative;float:left;display:block;width:50% !important"/>');
-				var customDateField = $('<span>Date</span>');
+				//var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Nepali Date" style="position:relative;float:left;display:block;width:50% !important"/>');
+				var customDateField = $('<img src="img/calendar.gif" alt="Popup" class="trigger calendars-trigger">');
 				
 				$(element[0]).after(customDateField);
 				//customDateField.appendTo(html);
