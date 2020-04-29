@@ -18,9 +18,11 @@ try{
 				
 				// Insert text input for nepali date
 				var customDateField = $('<input type="text" class="customDatePicker form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-invalid-date-validator ng-invalid-future-date-validator" placeholder="Select Nepali Date" style="position:relative;float:left;display:block;width:50% !important"/>');
+				var customDateField = $('<span>Date</span>');
+				
 				$(element[0]).after(customDateField);
 				//customDateField.appendTo(html);
-				customDateField.prev('input').css({"pointer-events":"none","color":"#ccc","position":"relative","float":"right","width":"30% !important","display":"content"});
+				customDateField.prev('input').css({"pointer-events":"none","color":"#ccc","position":"relative","float":"left","width":"30% !important","display":"content"});
 						
 				// Attach nepali calendar in the input field
 				customDateField.calendarsPicker({
