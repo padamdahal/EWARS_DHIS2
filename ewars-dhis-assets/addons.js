@@ -46,7 +46,10 @@ try{
 				
 				// Get the date
 				var ADDate = $(element[0]).val();
-				console.log(ADDate);
+				
+				if(ADDate != '' || ADDate != null || ADDate != undefined){
+					console.log(ADDate);
+				}
 				
 			}
 				
@@ -68,7 +71,6 @@ try{
 				$(element[0]).val(val);
 			});
 			
-			console.log(model);
 			// Age Variable - currentEvent.caMyqMax9y7
 			if(model == 'currentEvent.caMyqMax9y7'){
 				var parent = element[0].parentElement;
