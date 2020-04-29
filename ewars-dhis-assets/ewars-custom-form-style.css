@@ -2,6 +2,19 @@
 .calendars-popup{
 	z-index:9999999 !important;
 }
+
+.nepali-calendar{
+	position:relative;
+	float:left;
+	background:#fff;
+	border:none;
+	padding:0;
+	margin-top:3px;
+}
+
+.nepali-calendar img{
+	height:34px;
+}
 .table td input[type=text],.table td input[type=number], .table td.optionListInput{
 	border: 1px solid #aaa;
 	display: block;
